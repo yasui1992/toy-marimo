@@ -1,0 +1,25 @@
+# git
+.git
+.gitignore
+
+# Docker
+.dockerignore
+Dockerfile*
+
+# Makefile
+Makefile*
+
+# meta documents
+README.md
+LICENSE
+
+# environment variables
+.env
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.venv
+
+# notebook dir
+mnt/notebooks

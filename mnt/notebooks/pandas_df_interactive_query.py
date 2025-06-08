@@ -32,29 +32,23 @@ def _(df, mo):
         .to_list()
     )
 
-
     dp_symbols = mo.ui.dropdown(options=symbols, value=symbols[0])
     dp_symbols
     return (dp_symbols,)
 
 
 @app.cell
-def _(df):
-    df_at_symbol = df.query("symbol == @dp_symbols.value")
-    df_at_symbol
-    return (df_at_symbol,)
+def _(df, dp_symbols, go):
+    df_filtered_symbol = df.query("symbol == @dp_symbols.value")
 
-
-@app.cell
-def _(df_at_symbol, dp_symbols, go):
     fig = go.Figure()
     fig.add_trace(go.Scatter(
-        x=df_at_symbol["date"],
-        y=df_at_symbol["price"],
+        x=df_filtered_symbol["date"],
+        y=df_filtered_symbol["price"],
         mode="lines"
     ))
     fig.update_layout(
-        title=f"Price by date (symbel: {dp_symbols.value})",
+        title=f"Price by date (symbol: {dp_symbols.value})",
         xaxis=dict(
             rangeslider=dict(visible=True),
             type="date"

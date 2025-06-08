@@ -1,7 +1,7 @@
 .PHONY: build
 build:
 	@docker build \
-	--target app \
+	--target runtime \
 	-t toy-marimo \
 	.
 

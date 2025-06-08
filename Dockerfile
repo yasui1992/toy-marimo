@@ -32,12 +32,12 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 RUN --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
     --mount=type=bind,source=uv.lock,target=uv.lock \
-    uv sync --frozen
+    uv sync --frozen --dev
 
 COPY . /app
 
 
-FROM base AS app
+FROM base AS runtime
 ARG USERNAME
 ARG PYTHONDONTWRITEBYTECODE
 ARG PYTHONUNBUFFERED

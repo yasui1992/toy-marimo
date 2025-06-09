@@ -44,7 +44,7 @@ def _(alt, df, mo):
 
 @app.cell
 def _(chart, mo):
-    mo.vstack([chart, chart.value.head()])
+    mo.vstack([chart, chart.value])
     return
 
 

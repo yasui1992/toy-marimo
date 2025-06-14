@@ -8,7 +8,6 @@ app = marimo.App(width="medium")
 def _():
     import marimo as mo
 
-    from io import StringIO
     import requests
     import polars as pl
     return mo, pl, requests

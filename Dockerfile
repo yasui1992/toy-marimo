@@ -50,5 +50,5 @@ ENV PYTHONDONTWRITEBYTECODE=${PYTHONDONTWRITEBYTECODE} \
 COPY --from=builder --chown=${USERNAME}:${USERNAME} /app /app
 
 EXPOSE 8000
-ENTRYPOINT [ "marimo", "edit" ]
-CMD [ "--headless", "--port", "8000", "--host", "0.0.0.0" ]
+ENTRYPOINT [ "marimo" ]
+CMD [ "edit", "--headless", "--port", "8000", "--host", "0.0.0.0" ]

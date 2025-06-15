@@ -1,0 +1,22 @@
+ARG BASE_IMAGE=python:3.13-slim
+
+ARG USERNAME=nonroot
+ARG UID=1000
+ARG GID=1000
+
+FROM ${BASE_IMAGE} AS runtime
+ARG USERNAME
+ARG UID
+ARG GID
+
+RUN groupadd -g ${GID} ${USERNAME} \
+ && useradd -ms /bin/sh -u ${UID} -g ${GID} ${USERNAME}
+USER ${USERNAME}
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+COPY . /app
+
+EXPOSE 8000
+CMD [ "python", "-m", "http.server", "8000", "--bind", "0.0.0.0", "--directory", "/app/export" ]

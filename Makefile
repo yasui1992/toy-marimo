@@ -21,6 +21,24 @@ run:
 	-v $(PWD)/mnt:/app/mnt \
 	toy-marimo
 
+.PHONY: run-app
+run-app:
+	@if [ -z "$(filename)" ]; then \
+		echo "Error: filename is not set. Usage: make run-app filename=<your .py filename>"; \
+		exit 1; \
+	fi
+	@docker run --rm \
+	--rm \
+	-p 8000:8000 \
+	-v $(PWD)/mnt:/app/mnt \
+	toy-marimo \
+	run \
+	/app/mnt/notebooks/$(filename) \
+    --port 8000 \
+	--host 0.0.0.0 \
+	--headless
+
+
 .PHONY: export-wasm
 export-wasm:
 	@if [ -z "$(filename)" ]; then \

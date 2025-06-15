@@ -50,7 +50,8 @@ export-wasm:
 	@docker run --rm \
 	-v $(PWD)/mnt/notebooks/$(filename):/tmp/$(filename) \
 	-v $(PWD)/html_wasm/export:/tmp/export \
-	toy-marimo export html-wasm \
+	toy-marimo \
+	export html-wasm \
 	/tmp/$(filename) \
 	-o /tmp/export \
 	--mode run

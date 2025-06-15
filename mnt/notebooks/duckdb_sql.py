@@ -16,7 +16,7 @@ def _(mo):
         f"""
         CREATE OR REPLACE TABLE penguins
         AS
-        SELECT * FROM read_json("https://github.com/vega/vega-datasets/raw/main/data/penguins.json")
+        SELECT * FROM read_json("https://raw.githubusercontent.com/vega/vega-datasets/main/data/penguins.json")
         ;
         """
     )

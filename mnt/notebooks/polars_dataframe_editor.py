@@ -15,7 +15,7 @@ def _():
 
 @app.cell
 def _(pl, requests):
-    url = "https://github.com/vega/vega-datasets/raw/main/data/penguins.json"
+    url = "https://raw.githubusercontent.com/vega/vega-datasets/main/data/penguins.json"
     response = requests.get(url)
     response.raise_for_status()
 

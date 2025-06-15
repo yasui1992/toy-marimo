@@ -15,7 +15,7 @@ def _():
 
 @app.cell
 def _(pd):
-    df = pd.read_json("https://github.com/vega/vega-datasets/raw/main/data/penguins.json")
+    df = pd.read_json("https://raw.githubusercontent.com/vega/vega-datasets/main/data/penguins.json")
     df
     return (df,)
 
